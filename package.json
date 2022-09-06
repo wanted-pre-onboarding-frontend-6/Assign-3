@@ -29,9 +29,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint --cache \"src/**/*.js\"",
-    "lint:fix": "eslint --fix --cache \"src/**/*.js\"",
-    "format": "prettier --write --cache \"src/**/*.js\""
+    "lint": "eslint --cache \"src/**/*.{ts,tsx}\"",
+    "lint:fix": "eslint --fix --cache \"src/**/*.{ts,tsx}\"",
+    "format": "prettier --write --cache \"src/**/*.{ts,tsx}\""
   },
   "eslintConfig": {
     "extends": [
