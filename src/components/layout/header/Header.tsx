@@ -28,7 +28,7 @@ export default Header;
 const HeaderWrapper = styled.div`
   width: 100%;
   height: 150px;
-  background-color: ${props => props.theme.subColor};
+  background-color: ${props => props.theme.palette.subColor};
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -37,13 +37,13 @@ const HeaderWrapper = styled.div`
 
 const HeaderLogo = styled.div`
   font-family: 'Bubblegum-sans';
-  color: ${props => props.theme.mainColor};
+  color: ${props => props.theme.palette.mainColor};
   font-size: 76px;
   font-weight: bold;
 `;
 
 const HeaderNavList = styled.ul`
-  color: ${props => props.theme.fontColor};
+  color: ${props => props.theme.palette.fontColor};
   display: flex;
   justify-content: space-around;
   width: 300px;

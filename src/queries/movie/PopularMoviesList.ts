@@ -1,10 +1,10 @@
 import { useQuery } from 'react-query';
 import MovieApi from 'apis/MovieApi';
 
-const usePopularMoviesList = () => {
+const usePopularMoviesList = (page: number) => {
   return useQuery(
-    ['popularMovieList'],
-    () => MovieApi.getPopularMovies({ params: { language: 'ko' } }),
+    ['popularMovieList', page],
+    () => MovieApi.getPopularMovies({ params: { language: 'ko', page } }),
     {
       retry: false,
       refetchOnWindowFocus: false,
