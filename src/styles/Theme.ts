@@ -1,4 +1,8 @@
 export const theme = {
-  mainColor: '#ebe4f9',
+  mainColor: '#E81818',
   subColor: '#222222',
+  blackColor: '#000000',
+  redColor: '#F24E1E',
+  fontColor: '#ffffff',
+  fontSubColor: '#999999',
 };
