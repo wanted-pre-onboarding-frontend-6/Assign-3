@@ -1,13 +1,41 @@
 import styled from 'styled-components';
+import { useState, useEffect } from 'react';
 
 const Sidebar = () => {
+  const [showButton, setShowButton] = useState(false);
+
+  const onScrollToTop = () => {
+    window.scroll({
+      top: 0,
+    });
+  };
+
+  useEffect(() => {
+    const handleShowButton = () => {
+      if (window.scrollY > 500) {
+        setShowButton(true);
+      } else {
+        setShowButton(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleShowButton);
+    return () => {
+      window.removeEventListener('scroll', handleShowButton);
+    };
+  }, []);
+
   return (
-    <SidebarWrapper>
-      <div>TOP</div>
-      <div>BOTTOM</div>
-    </SidebarWrapper>
+    <>
+      {showButton && (
+        <SidebarWrapper>
+          <button onClick={onScrollToTop}>TOP</button>
+        </SidebarWrapper>
+      )}
+    </>
   );
 };
+
 export default Sidebar;
 
 const SidebarWrapper = styled.div`
@@ -18,7 +46,7 @@ const SidebarWrapper = styled.div`
   right: 5%;
   width: 120px;
 
-  & > div {
+  & > button {
     cursor: pointer;
     display: flex;
     justify-content: center;
