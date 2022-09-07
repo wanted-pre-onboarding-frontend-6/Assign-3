@@ -3,7 +3,12 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyle = createGlobalStyle`
     @font-face {
         font-family: "Noto-sans";
-        src: url("assets/font/NotoSansKR-Regular.otf");
+        src: url("assets/font/NotoSansKR-Regular.otf") format('font-otf');
+    }
+
+    @font-face {
+        font-family: 'Bubblegum-sans';
+        src: url('assets/font/BubblegumSans-Regular.ttf') format('font-ttf');
     }
 
     * {
@@ -11,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         font: inherit;
         color: inherit;
-        font-family: 'Noto Sans'
+        font-family: 'Noto-sans'
     }
 
     *,
