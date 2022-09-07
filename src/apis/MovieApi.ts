@@ -19,7 +19,7 @@ class MovieApi extends Api {
   }
 
   public async getTopRatedMovies({ params }: ParamsString) {
-    return await this.get(`/top_rated`, { params });
+    return await this.get(`/movie/top_rated`, { params });
   }
 
   public async getMovieById({ movie_id, params }: ParamsString) {

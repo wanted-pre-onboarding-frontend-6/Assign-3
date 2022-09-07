@@ -26,9 +26,10 @@ const HomeContent = (props: any) => {
 };
 
 const Container = styled.div`
-  width: 330px;
+  width: 300px;
   height: 610px;
   overflow: hidden;
+  margin: 20px;
 `;
 
 const PosterWrapper = styled.div`
