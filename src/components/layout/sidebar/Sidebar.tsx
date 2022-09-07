@@ -1,7 +1,9 @@
-import { useCallback } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 const Sidebar = () => {
+  const [isActiveButton, setIsShowButton] = useState<boolean>(false);
+  
   const onTopScrollHandler = useCallback((): void => {
     window.scrollTo({
       top: 0,
@@ -9,17 +11,32 @@ const Sidebar = () => {
     });
   }, []);
 
-  const onBottomScrollHandler = useCallback((): void => {
-    window.scrollTo(0, document.body.scrollHeight);
+  useEffect(() => {
+    const handleShowButton = () => {
+      if (window.scrollY > 500) {
+        setIsShowButton(true);
+      } else {
+        setIsShowButton(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleShowButton);
+    return () => {
+      window.removeEventListener('scroll', handleShowButton);
+    };
   }, []);
 
   return (
-    <SidebarWrapper>
-      <div onClick={onTopScrollHandler}>TOP</div>
-      <div onClick={onBottomScrollHandler}>BOTTOM</div>
-    </SidebarWrapper>
+    <div>
+      {isActiveButton && (
+        <SidebarWrapper>
+          <button onClick={onTopScrollHandler}>TOP</button>
+        </SidebarWrapper>
+      )}
+    </div>
   );
 };
+
 export default Sidebar;
 
 const SidebarWrapper = styled.div`
