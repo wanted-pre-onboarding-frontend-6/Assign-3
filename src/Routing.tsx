@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import { Suspense } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Spinner from 'components/spinner/Spinner';
 import Layout from 'components/layout/Layout';
@@ -26,4 +26,3 @@ function Routing() {
 }
 
 export default Routing;
-
