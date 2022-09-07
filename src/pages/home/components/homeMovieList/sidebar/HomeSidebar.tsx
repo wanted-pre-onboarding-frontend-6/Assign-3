@@ -25,15 +25,15 @@ export default HomeSideBar;
 const HomeSideWrapper = styled.div`
   position: sticky;
   width: 340px;
-  height: 100vh;
+  height: calc(100vh + 325px);
   top: 0;
   background-color: #000;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  color: ${props => props.theme.fontColor};
-  padding: 96px 0;
+  color: ${props => props.theme.palette.fontColor};
+  padding-bottom: 256px;
 
   & > ul {
     width: 100%;

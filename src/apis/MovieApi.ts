@@ -7,7 +7,7 @@ interface ParamsString {
 
 class MovieApi extends Api {
   public async getPopularMovies({ params }: ParamsString) {
-    return await this.get(`/popular`, { params });
+    return await this.get(`/movie/popular`, { params });
   }
 
   public async getNowPlayingMovies({ params }: ParamsString) {
