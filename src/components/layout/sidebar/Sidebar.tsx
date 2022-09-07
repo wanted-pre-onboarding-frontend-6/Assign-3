@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Sidebar = () => {
   const [isActiveButton, setIsShowButton] = useState<boolean>(false);
-
+  
   const onTopScrollHandler = useCallback((): void => {
     window.scrollTo({
       top: 0,
