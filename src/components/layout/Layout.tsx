@@ -25,5 +25,5 @@ export default Layout;
 const LayoutWrapper = styled.div`
   position: relative;
   min-height: 100vh;
-  background-color: ${props => props.theme.subColor};
+  background-color: ${props => props.theme.palette.subColor};
 `;

@@ -16,7 +16,7 @@ const BlackBackground = styled.div`
   left: 0px;
   width: 100%;
   height: 100%;
-  background: ${props => props.theme.subColor};
+  background: ${props => props.theme.palette.subColor};
 `;
 
 const spin = keyframes`
@@ -31,8 +31,8 @@ const LoadingSpinner = styled.div`
   top: 30%;
   width: 50px;
   height: 50px;
-  border: 4px solid ${props => props.theme.blackColor};
+  border: 4px solid ${props => props.theme.palette.blackColor};
   border-radius: 50%;
-  border-top-color: ${props => props.theme.mainColor};
+  border-top-color: ${props => props.theme.palette.mainColor};
   animation: ${spin} 1s linear infinite;
 `;
