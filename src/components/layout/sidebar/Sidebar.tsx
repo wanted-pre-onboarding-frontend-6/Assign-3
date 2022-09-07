@@ -36,6 +36,7 @@ const Sidebar = () => {
     </div>
   );
 };
+
 export default Sidebar;
 
 const SidebarWrapper = styled.div`
