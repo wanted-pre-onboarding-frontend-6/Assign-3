@@ -5,26 +5,27 @@ const useObServe = (observTarget: { current: any }, isLoading = false): number =
   const [page, setPage] = useState<number>(0);
 
   const obsHandler = useCallback((entries: any[]) => {
-    const target = entries[0];
-    if (target.isIntersecting) {
+    const TARGET = entries[0];
+    if (TARGET.isIntersecting) {
       setPage(prev => prev + 1);
     }
   }, []);
 
   useEffect(() => {
-    if (observTarget.current && !isLoading) {
+    const TARGET = observTarget.current;
+    if (TARGET && !isLoading) {
       observer.current = new IntersectionObserver(obsHandler, {
         rootMargin: '80px',
         threshold: 1,
       });
-      observer.current.observe(observTarget.current);
+      observer.current.observe(TARGET);
     }
     return () => {
       if (!isLoading) {
-        observTarget.current && observer.current?.unobserve(observTarget.current);
+        TARGET && observer.current?.unobserve(TARGET);
       }
     };
-  }, [page, isLoading]);
+  }, [page, isLoading, obsHandler, observTarget]);
 
   return page;
 };
