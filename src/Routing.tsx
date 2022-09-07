@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Spinner from 'components/spinner/Spinner';
 import Layout from 'components/layout/Layout';
 import HomePage from 'pages/home';
+import MovieDetail from 'pages/movieDetail';
 
 function Routing() {
   return (
@@ -15,7 +16,7 @@ function Routing() {
               <Route path="/now" element={<HomePage />} />
               <Route path="/upcoming" element={<HomePage />} />
               <Route path="/top-rated" element={<HomePage />} />
-              <Route path="/movie/detail/:movieId" element={<HomePage />} />
+              <Route path="/movie/detail/:movieId" element={<MovieDetail />} />
               <Route path="/search" element={<HomePage />} />
             </Routes>
           </Suspense>

@@ -23,7 +23,7 @@ class MovieApi extends Api {
   }
 
   public async getMovieById({ movie_id, params }: ParamsString) {
-    return await this.get(`/${movie_id}`, { params });
+    return await this.get(`/movie/${movie_id}`, { params });
   }
 }
 export default new MovieApi();
