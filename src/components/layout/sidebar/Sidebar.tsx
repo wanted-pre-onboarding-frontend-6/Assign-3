@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Sidebar = () => {
   const [isActiveButton, setIsShowButton] = useState<boolean>(false);
-  
+
   const onTopScrollHandler = useCallback((): void => {
     window.scrollTo({
       top: 0,
@@ -30,7 +30,7 @@ const Sidebar = () => {
     <div>
       {isActiveButton && (
         <SidebarWrapper>
-          <button onClick={onTopScrollHandler}>TOP</button>
+          <div onClick={onTopScrollHandler}>TOP</div>
         </SidebarWrapper>
       )}
     </div>
@@ -49,10 +49,10 @@ const SidebarWrapper = styled.div`
   z-index: 1000;
 
   & > div {
-    cursor: pointer;
     display: flex;
     justify-content: center;
-    padding: 36px;
+    align-self: center;
+    padding: 24px;
 
     :hover {
       color: #999;

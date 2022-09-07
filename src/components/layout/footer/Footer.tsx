@@ -30,12 +30,12 @@ const FooterWrapper = styled.div`
   bottom: 0;
   height: 365px;
   width: 100%;
-  background-color: ${props => props.theme.blackColor};
+  background-color: ${props => props.theme.palette.blackColor};
 `;
 
 const FooterContainer = styled.div`
   max-width: 90%;
-  color: ${props => props.theme.fontColor};
+  color: ${props => props.theme.palette.fontColor};
 
   & p:first-child {
     font-weight: bold;
@@ -44,7 +44,7 @@ const FooterContainer = styled.div`
   }
 
   & span {
-    color: ${props => props.theme.fontSubColor};
+    color: ${props => props.theme.palette.fontSubColor};
   }
 
   & p:last-child {

@@ -17,8 +17,8 @@ const SearchInput = styled.input`
 `;
 
 const SearchButton = styled.button`
-  background-color: ${props => props.theme.mainColor};
-  color: ${props => props.theme.fontColor};
+  background-color: ${props => props.theme.palette.mainColor};
+  color: ${props => props.theme.palette.fontColor};
   height: 48px;
   width: 76px;
 
