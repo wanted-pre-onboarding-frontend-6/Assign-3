@@ -1,8 +1,9 @@
-import React, { Suspense } from 'react';
+import { Suspense, lazy } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Spinner from 'components/spinner/Spinner';
 import Layout from 'components/layout/Layout';
-import HomePage from 'pages/home';
+
+const HomePage = lazy(() => import('pages/home'));
 
 function Routing() {
   return (
@@ -26,4 +27,3 @@ function Routing() {
 }
 
 export default Routing;
-
