@@ -2,15 +2,16 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { MovieResult } from 'types/api/Movie.type';
 
 library.add(faStar);
 const IMAGE_URL = process.env.REACT_APP_IMAGE_URL;
 
-const MovieContent = ({ data }: { data: any }) => {
+const MovieContent = ({ data }: { data: MovieResult }) => {
   return (
     <Container>
       <PosterWrapper>
-        <img src={IMAGE_URL + data.poster_path} alt="movie-poster" />
+        <img src={IMAGE_URL && IMAGE_URL + data.poster_path} alt="movie-poster" />
       </PosterWrapper>
       <DetailContainer>
         <Title>{data.title}</Title>

@@ -5,17 +5,13 @@ import styled from 'styled-components';
 import qs from 'query-string';
 import React, { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
+import { MovieResult } from 'types/api/Movie.type';
 
 const SearchPage = () => {
   const SERACH_PARAM = useLocation().search;
   const QUREY_STRING = qs.parse(SERACH_PARAM);
   const { data, isFetching, fetchNextPage } = useSearchMoviesList(QUREY_STRING);
-
   const [ref, inView] = useInView();
-
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
 
   useEffect(() => {
     if (!inView || isFetching) return;
@@ -29,13 +25,15 @@ const SearchPage = () => {
       </TitleWrapper>
       <MovieContainer>
         {data &&
-          data.pages?.map((page: { data: { results: any[] } }, i: React.Key | null | undefined) => (
-            <React.Fragment key={i}>
-              {page.data.results.map((movie: any) => (
-                <MovieContent key={movie.id} data={movie} />
-              ))}
-            </React.Fragment>
-          ))}
+          data.pages?.map(
+            (page: { data: { results: Array<MovieResult> } }, i: React.Key | null | undefined) => (
+              <React.Fragment key={i}>
+                {page.data.results.map((movie: MovieResult) => (
+                  <MovieContent key={movie.id} data={movie} />
+                ))}
+              </React.Fragment>
+            ),
+          )}
         <div ref={ref}></div>
       </MovieContainer>
     </Container>

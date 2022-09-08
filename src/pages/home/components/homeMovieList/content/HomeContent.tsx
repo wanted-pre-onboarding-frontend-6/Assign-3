@@ -1,13 +1,16 @@
 import usePopularMoviesList from 'queries/movie/PopularMoviesList';
-import React, { FC, useEffect } from 'react';
+import React, { FC, SetStateAction, useEffect } from 'react';
 import styled from 'styled-components';
 import { useInView } from 'react-intersection-observer';
 import MovieContent from 'components/content/MovieContent';
 import { LoadingSpinner } from 'styles/Common';
+import { MovieResult } from 'types/api/Movie.type';
+import { InfiniteData } from 'react-query';
+import { AxiosResponse } from 'axios';
 
 interface HomeContentProps {
-  movieListItem: any;
-  setMovieListItem: any;
+  movieListItem: InfiniteData<AxiosResponse<any, any>> | undefined;
+  setMovieListItem: SetStateAction<any>;
 }
 
 const HomeContent: FC<HomeContentProps> = ({ movieListItem, setMovieListItem }) => {
@@ -16,6 +19,7 @@ const HomeContent: FC<HomeContentProps> = ({ movieListItem, setMovieListItem }) 
 
   useEffect(() => {
     if (!data) return;
+    console.log(data);
     setMovieListItem(data);
   }, [data]);
 
@@ -29,9 +33,9 @@ const HomeContent: FC<HomeContentProps> = ({ movieListItem, setMovieListItem }) 
       <>
         {movieListItem &&
           movieListItem.pages?.map(
-            (page: { data: { results: any[] } }, i: React.Key | null | undefined) => (
+            (page: { data: { results: Array<MovieResult> } }, i: React.Key | null | undefined) => (
               <React.Fragment key={i}>
-                {page.data.results.map((movie: any) => (
+                {page.data.results.map((movie: MovieResult) => (
                   <MovieContent key={movie.id} data={movie} />
                 ))}
               </React.Fragment>

@@ -10,14 +10,10 @@ const useMovieById = (id: string) => {
       refetchOnWindowFocus: false,
       cacheTime: 1000 * 60 * 30,
       staleTime: 1000 * 60 * 30,
-      onError: err => {
-        alert(err);
-      },
-      onSuccess: () => {
-        console.log('데이터 가져오기 성공');
+      onError: (err: any) => {
+        throw new Error(err);
       },
     },
   );
 };
-
 export default useMovieById;
