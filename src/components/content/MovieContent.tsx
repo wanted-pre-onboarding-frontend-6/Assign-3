@@ -4,30 +4,32 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 library.add(faStar);
-
 const IMAGE_URL = process.env.REACT_APP_IMAGE_URL;
 
-const HomeContent = (props: any) => {
+const MovieContent = ({ data }: { data: any }) => {
   return (
     <Container>
       <PosterWrapper>
-        <img src={IMAGE_URL + props.poster_path} alt="movie-poster" />
+        <img src={IMAGE_URL + data.poster_path} alt="movie-poster" />
       </PosterWrapper>
       <DetailContainer>
-        <Title>{props.title}</Title>
+        <Title>{data.title}</Title>
         <VoteAverageContainer>
           <FontAwesomeIcon icon={['fas', 'star']} />
-          <span>{props.vote_average}</span>
+          <span>{data.vote_average}</span>
         </VoteAverageContainer>
-        <Overview>{props.overview}</Overview>
+        <Overview>{data.overview}</Overview>
       </DetailContainer>
     </Container>
   );
 };
 
+export default MovieContent;
+
 const Container = styled.div`
   width: 330px;
   height: 610px;
+  margin: 8px;
   overflow: hidden;
 `;
 
@@ -60,5 +62,3 @@ const Overview = styled.span`
   font-size: 14px;
   color: gray;
 `;
-
-export default HomeContent;
