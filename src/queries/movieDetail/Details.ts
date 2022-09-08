@@ -8,8 +8,7 @@ const useGetMovieDetailsQuery = (id: string) => {
     {
       retry: false,
       refetchOnWindowFocus: false,
-      cacheTime: 1000 * 60 * 30,
-      staleTime: 1000 * 60 * 30,
+      enabled: !!id,
     },
   );
 };
