@@ -15,7 +15,7 @@ class MovieApi extends Api {
   }
 
   public async getNowPlayingMovies({ params }: ParamsString) {
-    return await this.get('/now_playing', params);
+    return await this.get('/movie/now_playing', params);
   }
 
   public async getUpcomingMovies({ params }: ParamsString) {

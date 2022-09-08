@@ -5,6 +5,7 @@ import Layout from 'components/layout/Layout';
 import SearchPage from 'pages/search';
 
 const HomePage = lazy(() => import('pages/home'));
+const NowPlaying = lazy(() => import('pages/nowPlaying'));
 
 function Routing() {
   return (
@@ -14,7 +15,7 @@ function Routing() {
           <Suspense fallback={<Spinner />}>
             <Routes>
               <Route path="/" element={<HomePage />} />
-              <Route path="/now" element={<HomePage />} />
+              <Route path="/now" element={<NowPlaying />} />
               <Route path="/upcoming" element={<HomePage />} />
               <Route path="/top-rated" element={<HomePage />} />
               <Route path="/movie/detail/:movieId" element={<HomePage />} />
