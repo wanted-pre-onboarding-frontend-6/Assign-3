@@ -6,6 +6,7 @@ import SearchPage from 'pages/search';
 
 const HomePage = lazy(() => import('pages/home'));
 const NowPlaying = lazy(() => import('pages/nowPlaying'));
+const MovieDetail = lazy(() => import('pages/movieDetail'));
 
 function Routing() {
   return (
@@ -18,7 +19,7 @@ function Routing() {
               <Route path="/now" element={<NowPlaying />} />
               <Route path="/upcoming" element={<HomePage />} />
               <Route path="/top-rated" element={<HomePage />} />
-              <Route path="/movie/detail/:movieId" element={<HomePage />} />
+              <Route path="/movie/detail/:movieId" element={<MovieDetail />} />
               <Route path="/search" element={<SearchPage />} />
             </Routes>
           </Suspense>

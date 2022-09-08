@@ -28,7 +28,7 @@ export default Header;
 const HeaderWrapper = styled.div`
   width: 100%;
   height: 150px;
-  background-color: ${props => props.theme.palette.subColor};
+  background-color: ${props => props.theme.palette.blackColor};
   display: flex;
   justify-content: space-between;
   align-items: center;

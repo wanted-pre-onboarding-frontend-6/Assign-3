@@ -1,19 +1,17 @@
 import axios from 'axios';
 
-const BASE_URL = process.env.REACT_APP_BASE_URL;
-const API_KEY = process.env.REACT_APP_API_KEY;
-
 class Api {
   private createAxios(headerOption?: any) {
     return axios.create({
-      baseURL: BASE_URL,
+      baseURL: process.env.REACT_APP_BASE_URL,
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
         ...headerOption,
       },
       params: {
-        api_key: API_KEY,
+        api_key: process.env.REACT_APP_API_KEY,
+        append_to_response: 'videos',
       },
     });
   }
