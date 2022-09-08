@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { useInView } from 'react-intersection-observer';
 import MovieContent from 'components/content/MovieContent';
-import useNowPlayingMoviesList from 'queries/movie/NowPlayingMoviesList';
+import useTopRatedMoviesList from 'queries/movie/TopRatedMoviesList';
 
-const UpComingPage = () => {
-  const { data, isFetching, fetchNextPage } = useNowPlayingMoviesList();
+const TopRatedPage = () => {
+  const { data, isFetching, fetchNextPage } = useTopRatedMoviesList();
   const [ref, inView] = useInView();
 
   useEffect(() => {
@@ -17,7 +17,7 @@ const UpComingPage = () => {
     <>
       <Container>
         <TitleWrapper>
-          <Title>NOW PLAYING MOVIES</Title>
+          <Title>TOP RATED MOVIES</Title>
         </TitleWrapper>
         <MovieContainer>
           {data &&
@@ -36,7 +36,7 @@ const UpComingPage = () => {
     </>
   );
 };
-export default UpComingPage;
+export default TopRatedPage;
 
 const Container = styled.div`
   display: flex;

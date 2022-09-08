@@ -1,19 +1,59 @@
-import HomeSideBar from 'pages/home/components/homeMovieList/sidebar/HomeSidebar';
-import { useState } from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import UpComingContent from './components/UpComingContent';
+import { useInView } from 'react-intersection-observer';
+import MovieContent from 'components/content/MovieContent';
+import useUpcomingMoviesList from 'queries/movie/UpcomingMoviesList';
 
 const UpComingPage = () => {
-  const [movieListItem, setMovieListItem] = useState<any>([]);
+  const { data, isFetching, fetchNextPage } = useUpcomingMoviesList();
+  const [ref, inView] = useInView();
+
+  useEffect(() => {
+    if (!inView || isFetching) return;
+    fetchNextPage();
+  }, [inView]);
+
   return (
-    <Wrapper>
-      <HomeSideBar />
-      <UpComingContent movieListItem={movieListItem} setMovieListItem={setMovieListItem} />
-    </Wrapper>
+    <>
+      <Container>
+        <TitleWrapper>
+          <Title>UPCOMING MOVIES</Title>
+        </TitleWrapper>
+        <MovieContainer>
+          {data &&
+            data.pages?.map(
+              (page: { data: { results: any[] } }, i: React.Key | null | undefined) => (
+                <React.Fragment key={i}>
+                  {page.data.results.map((movie: any) => (
+                    <MovieContent key={movie.id} data={movie} />
+                  ))}
+                </React.Fragment>
+              ),
+            )}
+          <div ref={ref}></div>
+        </MovieContainer>
+      </Container>
+    </>
   );
 };
 export default UpComingPage;
 
-const Wrapper = styled.div`
+const Container = styled.div`
   display: flex;
+  flex-direction: column;
+`;
+
+const TitleWrapper = styled.div`
+  padding: 20px 60px;
+`;
+
+const Title = styled.span`
+  color: white;
+  font-size: 20px;
+`;
+
+const MovieContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 `;

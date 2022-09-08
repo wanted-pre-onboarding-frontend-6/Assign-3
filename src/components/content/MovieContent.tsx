@@ -2,25 +2,28 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 library.add(faStar);
 const IMAGE_URL = process.env.REACT_APP_IMAGE_URL;
 
 const MovieContent = ({ data }: { data: any }) => {
   return (
-    <Container>
-      <PosterWrapper>
-        <img src={IMAGE_URL + data.poster_path} alt="movie-poster" />
-      </PosterWrapper>
-      <DetailContainer>
-        <Title>{data.title}</Title>
-        <VoteAverageContainer>
-          <FontAwesomeIcon icon={['fas', 'star']} />
-          <span>{data.vote_average}</span>
-        </VoteAverageContainer>
-        <Overview>{data.overview}</Overview>
-      </DetailContainer>
-    </Container>
+    <Link to={'/movie/detail/' + data.id}>
+      <Container>
+        <PosterWrapper>
+          <img src={IMAGE_URL + data.poster_path} alt="movie-poster" />
+        </PosterWrapper>
+        <DetailContainer>
+          <Title>{data.title}</Title>
+          <VoteAverageContainer>
+            <FontAwesomeIcon icon={['fas', 'star']} />
+            <span>{data.vote_average}</span>
+          </VoteAverageContainer>
+          <Overview>{data.overview}</Overview>
+        </DetailContainer>
+      </Container>
+    </Link>
   );
 };
 
