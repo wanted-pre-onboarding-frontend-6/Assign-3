@@ -6,7 +6,7 @@
 
 ## 📌 배포
 
--- 링크 넣기 --
+https://movie-trailer-fe-5.netlify.app/
 <br />
 
 ## 📌 프로젝트 설치 및 시작
@@ -63,13 +63,44 @@ $ npm run start
 
 [커밋 컨벤션 및 코딩 컨벤션](https://github.com/wanted-pre-onboarding-frontend-6/Assign-1/wiki/%EC%BB%A4%EB%B0%8B-%EC%BB%A8%EB%B2%A4%EC%85%98-%EB%B0%8F-%EC%BD%94%EB%94%A9-%EC%BB%A8%EB%B2%A4%EC%85%98)
 
+## 📌 디자인 시안
+[LINK (designed by 김성용)](https://www.figma.com/file/NUfCromXgunwSMxY3UrQ59/Untitled?node-id=0%3A1)
+
 ## 📌 프로젝트 구조
 
 <details>
 <summary>open</summary>
 
 ```
-새로 넣기
+├─apis
+├─assets
+│  ├─font
+│  └─img
+├─components
+│  ├─content
+│  ├─layout
+│  │  ├─footer
+│  │  ├─header
+│  │  │  └─search
+│  │  └─sidebar
+│  └─spinner
+├─hooks
+├─pages
+│  ├─home
+│  │  └─components
+│  │      └─homeMovieList
+│  │          ├─content
+│  │          └─sidebar
+│  ├─movieDetail
+│  │  └─components
+│  ├─nowPlaying
+│  └─search
+├─queries
+│  └─movie
+├─styles
+└─types
+    ├─api
+    └─style
 ```
 
 </details>
@@ -80,10 +111,6 @@ $ npm run start
 ![](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) 
 ![React Query](https://img.shields.io/badge/-React%20Query-FF4154?style=for-the-badge&logo=react%20query&logoColor=white)
 ![](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
-
-### 💡 React Query 채택 이유
-
-fetching, caching, user state 업데이트 등을 리액트 애플리케이션에서 처리할 때 편리하고, 이번 과제의 요구 사항인 infinite scroll 구현 기능(useInfiniteQuery) 또한 제공하기 때문에 채택했습니다.
 
 ## 📌기능 목록 명세
 
@@ -120,6 +147,16 @@ fetching, caching, user state 업데이트 등을 리액트 애플리케이션�
 
 -   UI/UX를 기반으로 검색된 영화 페이지를 구성하고 디자인을 함.
 -   input state값으로 navigate 후 api response load
+
+## 📌 Best Practice
+
+### 💡 React Query 채택 이유
+
+fetching, caching, user state 업데이트 등을 리액트 애플리케이션에서 처리할 때 편리하고, 이번 과제의 요구 사항인 infinite scroll 구현 기능(useInfiniteQuery) 또한 제공하기 때문에 채택했습니다.
+
+### 💡 styled components 스타일 코드 컴포넌트 내에 배치
+
+응집도를 우선시 하여 컴포넌트 구현 코드와 같이 배치하였습니다.
 
 ## 📌 캐싱
  캐싱은 자주 접근하는 데이터의 복사본을 요청-응답 경로를 따라 여러 곳에 저장하는 것이다. API 캐싱은 사용자가 요청을 할 때마다 API가 서버에 대한 연결을 만들지 않아도 되기 때문에 사용자 브라우저와 서버 간의 응답 시간을 개선하는 데 도움을 준다. 그리고 서버에서 처리해야 하는 요청 수를 줄여주기 때문에 페이지 로딩 속도가 향상 되고, 응답 시간이 단축되어 사용자에게 좋은 경험을 주기도 한다. 데이터를 장기간 보관하지 않고 주기적으로 자동 삭제 되어 데이터를 효율적으로 저장할 수 있으며 이를 통해 성능 개선이 된다.
