@@ -1,11 +1,27 @@
+import { useInput } from 'hooks/useInput';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const HeaderSearch = () => {
+  const [seachValue, onChangSearchValue, setSearchValue] = useInput('');
+  const naviate = useNavigate();
+
+  const onSearchHandler = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    naviate(`/search?query=${seachValue}`);
+    setSearchValue('');
+  };
+
   return (
-    <div>
-      <SearchInput type="text" placeholder="Search movie name" />
-      <SearchButton>Search</SearchButton>
-    </div>
+    <form>
+      <SearchInput
+        type="text"
+        placeholder="Search movie name"
+        value={seachValue}
+        onChange={onChangSearchValue}
+      />
+      <SearchButton onClick={onSearchHandler}>Search</SearchButton>
+    </form>
   );
 };
 export default HeaderSearch;
