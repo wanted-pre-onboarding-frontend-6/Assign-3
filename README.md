@@ -1,46 +1,122 @@
-# Getting Started with Create React App
+# 🎬 영화 트레일러 사이트
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📌 프로젝트 소개
 
-## Available Scripts
+영화 트레일러 사이트 만들기
 
-In the project directory, you can run:
+## 📌 배포
 
-### `npm start`
+-- 링크 넣기 --
+<br />
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 📌 프로젝트 설치 및 시작
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+#### 프로젝트 클론
 
-### `npm test`
+```shell
+$ git clone https://github.com/wanted-pre-onboarding-frontend-6/Assign-3.git
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### 패키지 설치
 
-### `npm run build`
+```shell
+$ npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### 서버 실행
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```shell
+$ npm run start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📌 팀원 소개
 
-### `npm run eject`
+<br/>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<table align="center">
+<tr >
+<td align="center"><a href="https://github.com/LoggingCo"><img  src="https://avatars.githubusercontent.com/LoggingCo" width="100%"  height="50%"/></a></td>
+<td align="center"><a href="https://github.com/sming0112"><img src="https://avatars.githubusercontent.com/sming0112" width="100%"  height="50%"/></a></td>
+<td align="center"><a href="https://github.com/YSBINN"><img src="https://avatars.githubusercontent.com/YSBINN" width="100%" height="50%" /></a></td>
+<td align="center"><a href="https://github.com/Leejha"><img src="https://avatars.githubusercontent.com/Leejha" width="100%"  height="50%"/></a></td>
+<td align="center"><a href="https://github.com/seriparkdev"><img src="https://avatars.githubusercontent.com/seriparkdev" width="100%"  height="50%"/></a></td>
+</tr>
+<tr>
+<td align="center"><b>김성용(팀장)</b></td>
+<td align="center"><b>성민규</b></td>
+<td align="center"><b>임상빈</b></td>
+<td align="center"><b>이재하</b></td>
+<td align="center"><b>박세리</b></td>
+</tr>
+<tr>
+<td align="center"><b>FE Developer</b></td>
+<td align="center"><b>FE Developer</b></td>
+<td align="center"><b>FE Developer</b></td>
+<td align="center"><b>FE Developer</b></td>
+<td align="center"><b>FE Developer</b></td>
+</tr>
+</table>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 📌프로젝트 과정 소개
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+[Git전략](https://github.com/wanted-pre-onboarding-frontend-6/Assign-1/wiki/Git-%EC%A0%84%EB%9E%B5)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+[커밋 컨벤션 및 코딩 컨벤션](https://github.com/wanted-pre-onboarding-frontend-6/Assign-1/wiki/%EC%BB%A4%EB%B0%8B-%EC%BB%A8%EB%B2%A4%EC%85%98-%EB%B0%8F-%EC%BD%94%EB%94%A9-%EC%BB%A8%EB%B2%A4%EC%85%98)
 
-## Learn More
+## 📌 프로젝트 구조
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<details>
+<summary>open</summary>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+새로 넣기
+```
+
+</details>
+
+## 📌기술 스택
+ 
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) 
+![](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) 
+![React Query](https://img.shields.io/badge/-React%20Query-FF4154?style=for-the-badge&logo=react%20query&logoColor=white)
+![](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
+
+### 💡 React Query 채택 이유
+
+fetching, caching, user state 업데이트 등을 리액트 애플리케이션에서 처리할 때 편리하고, 이번 과제의 요구 사항인 infinite scroll 구현 기능(useInfiniteQuery) 또한 제공하기 때문에 채택했습니다.
+
+## 📌기능 목록 명세
+
+### ✔ home page
+
+-   페이지당 최대 32개 상품까지 조회
+-   상품을 클릭시 해당 상품 페이지 이동
+-   페이지네이션을 이용하여 효율적인 페이지 탐색
+-   좋아요와 리뷰 갯수 시각화에 따른 유저 경험 향상
+
+### ✔ now playing page
+
+-   UI/UX를 기반으로 현재 상영 중인 영화 목록 페이지를 구성하고 디자인을 함.
+-   react query를 통해 infinite scroll 구현
+ 
+### ✔ upcoming page
+
+-   UI/UX를 기반으로 계봉 예정인 영화 목록 페이지를 구성하고 디자인을 함.
+-   세션 스토리지에 담긴 주문내역 데이터를 기반으로 데이터 처리
+-   주문하기를 누르면 주문 내역확인 페이지로 이동
+
+### ✔ top-rated page
+
+-   UI/UX를 기반으로 평가 순위가 높은 영화 목록 페이지를 구성하고 디자인을 함.
+
+
+### ✔ detail page
+-   해당 movie 정보에 video가 있는경우 페이지 접속 시 자동재생 기능
+-   movie에 대한 상세 정보 UI 구현 
+
+### ✔ search page
+
+-   
+
+## 📌 캐싱
+ 캐싱은 자주 접근하는 데이터의 복사본을 요청-응답 경로를 따라 여러 곳에 저장하는 것이다. API 캐싱은 사용자가 요청을 할 때마다 API가 서버에 대한 연결을 만들지 않아도 되기 때문에 사용자 브라우저와 서버 간의 응답 시간을 개선하는 데 도움을 준다. 그리고 서버에서 처리해야 하는 요청 수를 줄여주기 때문에 페이지 로딩 속도가 향상 되고, 응답 시간이 단축되어 사용자에게 좋은 경험을 주기도 한다. 데이터를 장기간 보관하지 않고 주기적으로 자동 삭제 되어 데이터를 효율적으로 저장할 수 있으며 이를 통해 성능 개선이 된다.

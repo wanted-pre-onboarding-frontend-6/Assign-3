@@ -1,11 +1,14 @@
-import { useQuery } from 'react-query';
+import { useInfiniteQuery, useQuery } from 'react-query';
 import MovieApi from 'apis/MovieApi';
 
 const useTopRatedMoviesList = () => {
-  return useQuery(
+  return useInfiniteQuery(
     ['TopRatedMoviesList'],
-    () => MovieApi.getTopRatedMovies({ params: { language: 'ko' } }),
+    ({ pageParam = 1 }) => MovieApi.getTopRatedMovies({ params: { page: pageParam } }),
     {
+      getNextPageParam: lastPage => {
+        return lastPage.data.page + 1;
+      },
       retry: false,
       refetchOnWindowFocus: false,
       cacheTime: 1000 * 60 * 30,
