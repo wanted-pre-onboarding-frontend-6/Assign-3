@@ -3,16 +3,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import { MovieResult } from 'types/api/Movie.type';
+import ReplaceIme from 'assets/img/unknown.png';
 
 library.add(faStar);
 const IMAGE_URL = process.env.REACT_APP_IMAGE_URL;
 
-const MovieContent = ({ data }: { data: any }) => {
+const MovieContent = ({ data }: { data: MovieResult }) => {
   return (
     <Link to={'/movie/detail/' + data.id}>
       <Container>
         <PosterWrapper>
-          <img src={IMAGE_URL + data.poster_path} alt="movie-poster" />
+          <img
+            src={IMAGE_URL && data.poster_path ? IMAGE_URL + data.poster_path : ReplaceIme}
+            alt="movie-poster"
+          />
         </PosterWrapper>
         <DetailContainer>
           <Title>{data.title}</Title>
@@ -38,6 +43,9 @@ const Container = styled.div`
 
 const PosterWrapper = styled.div`
   margin-bottom: 4px;
+  & > img {
+    min-height: 495px;
+  }
 `;
 
 const DetailContainer = styled.div`
