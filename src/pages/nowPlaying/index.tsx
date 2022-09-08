@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useInView } from 'react-intersection-observer';
 import MovieContent from 'components/content/MovieContent';
 import useNowPlayingMoviesList from 'queries/movie/NowPlayingMoviesList';
+import { MovieResult } from 'types/api/Movie.type';
 
 const UpComingPage = () => {
   const { data, isFetching, fetchNextPage } = useNowPlayingMoviesList();
@@ -22,9 +23,9 @@ const UpComingPage = () => {
         <MovieContainer>
           {data &&
             data.pages?.map(
-              (page: { data: { results: any[] } }, i: React.Key | null | undefined) => (
+              (page: { data: { results: MovieResult[] } }, i: React.Key | null | undefined) => (
                 <React.Fragment key={i}>
-                  {page.data.results.map((movie: any) => (
+                  {page.data.results.map((movie: MovieResult) => (
                     <MovieContent key={movie.id} data={movie} />
                   ))}
                 </React.Fragment>

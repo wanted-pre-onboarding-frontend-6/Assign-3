@@ -11,7 +11,9 @@ const useUpcomingMoviesList = () => {
       },
       retry: false,
       refetchOnWindowFocus: false,
-      cacheTime: 1000 * 60 * 30,
+      onError: (err: any) => {
+        throw new Error(err);
+      },
     },
   );
 };
