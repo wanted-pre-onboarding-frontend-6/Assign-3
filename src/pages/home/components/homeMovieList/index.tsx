@@ -1,20 +1,19 @@
-import { useEffect } from 'react';
-import usePopularMoviesList from 'queries/movie/PopularMoviesList';
-import HomeContent from './content/HoneContent';
+import { useState } from 'react';
+import HomeContent from './content/HomeContent';
 import HomeSideBar from './sidebar/HomeSidebar';
+import styled from 'styled-components';
 
 const HomeMoveList = () => {
-  const { data, isLoading } = usePopularMoviesList(1);
-
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
-
+  const [movieListItem, setMovieListItem] = useState<any>([]);
   return (
-    <>
+    <HoveMovieWraaper>
       <HomeSideBar />
-      <HomeContent />
-    </>
+      <HomeContent movieListItem={movieListItem} setMovieListItem={setMovieListItem} />
+    </HoveMovieWraaper>
   );
 };
 export default HomeMoveList;
+
+const HoveMovieWraaper = styled.div`
+  display: flex;
+`;
