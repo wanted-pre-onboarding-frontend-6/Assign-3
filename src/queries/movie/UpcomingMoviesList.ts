@@ -1,20 +1,17 @@
-import { useQuery } from 'react-query';
+import { useInfiniteQuery } from 'react-query';
 import MovieApi from 'apis/MovieApi';
 
 const useUpcomingMoviesList = () => {
-  return useQuery(
+  return useInfiniteQuery(
     ['UpcomingMoviesList'],
-    () => MovieApi.getUpcomingMovies({ params: { language: 'ko' } }),
+    ({ pageParam = 1 }) => MovieApi.getUpcomingMovies({ params: { page: pageParam } }),
     {
+      getNextPageParam: lastPage => {
+        return lastPage.data.page + 1;
+      },
       retry: false,
       refetchOnWindowFocus: false,
       cacheTime: 1000 * 60 * 30,
-      onError: err => {
-        alert(err);
-      },
-      onSuccess: () => {
-        console.log('데이터 가져오기 성공');
-      },
     },
   );
 };
