@@ -1,10 +1,11 @@
 import { useInfiniteQuery } from 'react-query';
 import MovieApi from 'apis/MovieApi';
 
-const usePopularMoviesList = () => {
+const useSearchMoviesList = (qs: any) => {
+  const { query } = qs;
   return useInfiniteQuery(
-    ['popularMovieList'],
-    ({ pageParam = 1 }) => MovieApi.getPopularMovies({ params: { page: pageParam } }),
+    ['searchMovieList', query],
+    ({ pageParam = 1 }) => MovieApi.getSerachMovies({ params: { page: pageParam, query } }),
     {
       getNextPageParam: lastPage => {
         return lastPage.data.page + 1;
@@ -16,4 +17,4 @@ const usePopularMoviesList = () => {
   );
 };
 
-export default usePopularMoviesList;
+export default useSearchMoviesList;

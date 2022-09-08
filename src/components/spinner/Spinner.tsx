@@ -1,38 +1,12 @@
 import styled, { keyframes } from 'styled-components';
+import { BlackBackGround, LoadingSpinner } from 'styles/Common';
 
 function Spinner() {
   return (
-    <BlackBackground>
+    <BlackBackGround>
       <LoadingSpinner />
-    </BlackBackground>
+    </BlackBackGround>
   );
 }
 
 export default Spinner;
-
-const BlackBackground = styled.div`
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  background: ${props => props.theme.palette.subColor};
-`;
-
-const spin = keyframes`
-to{
-  transform: rotate(360deg);
-}`;
-
-const LoadingSpinner = styled.div`
-  display: block;
-  position: absolute;
-  left: 50%;
-  top: 30%;
-  width: 50px;
-  height: 50px;
-  border: 4px solid ${props => props.theme.palette.blackColor};
-  border-radius: 50%;
-  border-top-color: ${props => props.theme.palette.mainColor};
-  animation: ${spin} 1s linear infinite;
-`;
