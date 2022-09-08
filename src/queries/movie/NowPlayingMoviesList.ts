@@ -1,4 +1,3 @@
-import { useQuery } from 'react-query';
 import MovieApi from 'apis/MovieApi';
 import { useInfiniteQuery } from 'react-query';
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import { useParams } from 'react-router-dom';
 import useGetMovieDetails from 'queries/movieDetail/Details';
 import ReactPlayer from 'react-player';
